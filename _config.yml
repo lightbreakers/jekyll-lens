@@ -10,11 +10,11 @@ copyright: "Copyright &copy; 2024 - harsh."
 
 ## Site Configurations ##
 # 1st heading of the site.
-header: "Parashar's"
+header: "Parashar's wedding"
 # 2nd heading/sub heading of the website.
 subheader: "Wedding photos"
 # A description/bio of the website.
-bio: "Amazing day.."
+bio: "What a day we had! We both hope you all enjoyed it too.."
 social:
   # Your Twitter username.
   twitter_username: ""
