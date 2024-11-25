@@ -6,38 +6,80 @@ layout: default
 <div id="main">
   <!-- Header -->
   <header id="header">
+    <img src="/assets/images/logo.png" class="logo" />
     <h1>{{ site.header }}</h1>
     <h2>{{ site.subheader }}</h2>
     <p>{{ site.bio }}</p>
     {% if site.social %}
-      <ul class="icons">
-        {% if site.social.twitter_username and site.social.twitter_username != "" %}
-          <li><a href="https://twitter.com/{{ site.social.twitter_username }}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-        {% endif %}
-        {% if site.social.facebook_username and site.social.facebook_username != "" %}
-          <li><a href="https://www.facebook.com/{{ site.social.facebook_username }}" class="icon fa-facebook-official"><span class="label">Facebook</span></a></li>
-        {% endif %}
-        {% if site.social.instagram_username and site.social.instagram_username != "" %}
-          <li><a href="https://instagram.com/{{ site.social.instagram_username }}" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-        {% endif %}
-        {% if site.social.github_username and site.social.github_username != "" %}
-          <li><a href="https://github.com/{{ site.social.github_username }}" class="icon fa-github"><span class="label">Github</span></a></li>
-        {% endif %}
-        {% if site.social.email and site.social.email != "" %}
-          <li><a href="mailto:{{ site.social.email }}" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-        {% endif %}
-      </ul>
+    <ul class="icons">
+      {% if site.social.twitter_username and site.social.twitter_username != ""
+      %}
+      <li>
+        <a
+          href="https://twitter.com/{{ site.social.twitter_username }}"
+          class="icon fa-twitter"
+          ><span class="label">Twitter</span></a
+        >
+      </li>
+      {% endif %} {% if site.social.facebook_username and
+      site.social.facebook_username != "" %}
+      <li>
+        <a
+          href="https://www.facebook.com/{{ site.social.facebook_username }}"
+          class="icon fa-facebook-official"
+          ><span class="label">Facebook</span></a
+        >
+      </li>
+      {% endif %} {% if site.social.instagram_username and
+      site.social.instagram_username != "" %}
+      <li>
+        <a
+          href="https://instagram.com/{{ site.social.instagram_username }}"
+          class="icon fa-instagram"
+          ><span class="label">Instagram</span></a
+        >
+      </li>
+      {% endif %} {% if site.social.github_username and
+      site.social.github_username != "" %}
+      <li>
+        <a
+          href="https://github.com/{{ site.social.github_username }}"
+          class="icon fa-github"
+          ><span class="label">Github</span></a
+        >
+      </li>
+      {% endif %} {% if site.social.email and site.social.email != "" %}
+      <li>
+        <a href="mailto:{{ site.social.email }}" class="icon fa-envelope-o"
+          ><span class="label">Email</span></a
+        >
+      </li>
+      {% endif %}
+    </ul>
     {% endif %}
   </header>
 
   <!-- Thumbnail -->
-  <section id="thumbnails">
-    {% assign gallery = site.static_files | where: "image", true %}
-    {% for image in gallery %}
-      <article>
-        <a class="thumbnail" href="{{ site.gallery_dir }}/{{ image.name }}" data-position="{{ site.thumbnail_position }}"><img src="{{ site.gallery_dir }}/{{ image.name }}" alt="{{ image.basename }}" /></a>
-        <h2>{{ image.basename | replace: "_", " " }}</h2>
-      </article>
+  <section id="thumbnails" class="grid">
+    {% for image in site.data.gallery %}
+    <article class="grid-item">
+      <a
+        class="thumbnail"
+        href="https://res.cloudinary.com/daq0unep2/image/upload/{{ image }}"
+        data-position="{{ site.thumbnail_position }}"
+        >
+        <!-- https://res.cloudinary.com/daq0unep2/image/upload/ -->
+        <img
+          class="lazy"
+          src="data:image/gif;base64,R0lGODlhCgAyAPAAAAAAAAAAACH5BAEAAAAALAAAAAAKADIAAAIUhI+py+0Po5y02ouz3rz7D4biiBQAOw=="
+          data-src="https://res.cloudinary.com/daq0unep2/image/upload/g_face,c_fill,h_300,w_600/{{ image }}"
+          alt="The Hossacks"
+      /></a>
+      <!-- https://res.cloudinary.com/daq0unep2/image/upload/ -->
+      <a href="https://www.harshparashar.dev/" target="_blank"
+        ><h2>Photography by Yash Parashar</h2></a
+      >
+    </article>
     {% endfor %}
   </section>
 
@@ -45,7 +87,6 @@ layout: default
   <footer id="footer">
     <ul class="copyright">
       <li>{{ site.copyright }}</li>
-      <li>Powered by <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://github.com/ElasticDesigns/jekyll-lens">Jekyll Lens</a></li>
     </ul>
   </footer>
 </div>
